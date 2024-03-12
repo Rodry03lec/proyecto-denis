@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Configuracion\Controlador_configuracion;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Usuario\Controlador_login;
 use App\Http\Controllers\Usuario\Controlador_usuario;
@@ -61,4 +62,11 @@ Route::prefix('/admin')->middleware(['autenticados'])->group(function(){
          */
 
     });
+
+    //PARA LA PARTE DE LAS TIPOLOGIAS
+    Route::controller(Controlador_configuracion::class)->group(function(){
+        Route::get('tipologia', 'tipologia')->name('tip_index');
+        Route::post('tipologia_guardar', 'tipologia_guardar')->name('tip_guardar');
+    });
+
 });

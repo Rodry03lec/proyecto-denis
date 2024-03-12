@@ -32,6 +32,16 @@ class Seeder_usuario extends Seeder
             $permiso->name = $i.'permiso'.$i;
             $permiso->save();
         }
+
+        $usuario1 = new User();
+        $usuario1->usuario = 'denis';
+        $usuario1->password = Hash::make('denis');
+        $usuario1->ci = '12345678';
+        $usuario1->nombres = 'denis';
+        $usuario1->apellidos = 'Denis';
+        $usuario1->estado =  'activo';
+        $usuario1->id_persona = '0';
+        $usuario1->save();
     }
 
     
